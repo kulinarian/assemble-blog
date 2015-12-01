@@ -1,4 +1,8 @@
 
+#### Assemble.io
+
+To learn how to get setup and running with [assemble.io](http://assemble.io/), go to their [quickstart guide](http://assemble.io/docs/Quickstart.html) or follow some of the tutorials listed below.
+
 #### app/partials/ignored
 
 This directory contains partials that we do not want to include in our public repo.
