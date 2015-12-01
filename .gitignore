@@ -1,4 +1,5 @@
+# for store environment configuration variables
+app/js/.environment.js
 node_modules/
 app/partials/ignored
 !app/partials/ignored/.gitkeep
-app/js/.environment.js
