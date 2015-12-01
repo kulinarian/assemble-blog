@@ -1,6 +1,7 @@
 ---
-asset_verions: 2-0-4
+asset_version: 2-0-5
 font_path: /fonts/
+asset_cdn: //d28ebfqlcy0ttg.cloudfront.net
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,7 @@ font_path: /fonts/
         }
     </style>
 
-    <link rel="stylesheet" href="//www.kulinarian.com/css/style{{ asset_version }}.css"/>
+    <link rel="stylesheet" href="{{ asset_cdn }}/css/style{{ asset_version }}.css"/>
 
     <script>
         var kulinarian_url = 'http://blog.kulinarian.com';
@@ -38,12 +39,12 @@ font_path: /fonts/
 <body>
     <header>
     <div id="masthead">
-        <img id="masthead-img" src="https://api.kulinarian.dev/images/mastheads/foodiesfeed.com_italian-polenta.jpg" alt="https://api.kulinarian.dev/images/mastheads/foodiesfeed.com_italian-polenta.jpg">
+        <img id="masthead-img" src="{{ asset_cdn }}/images/mastheads/foodiesfeed.com_italian-polenta.jpg" alt="{{ asset_cdn }}/images/mastheads/foodiesfeed.com_italian-polenta.jpg">
     </div>
 
     <footer>
         
     </footer>
-    <script type="text/javascript" src="//www.kulinarian.com/js/kulinarian{{ asset_version }}.js"></script>
+    <script type="text/javascript" src="{{ asset_cdn }}/js/kulinarian{{ asset_version }}.min.js"></script>
 </body>
 </html>
