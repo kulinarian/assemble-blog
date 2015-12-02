@@ -59,7 +59,7 @@ font_path: /fonts/
         <div id="primary-nav">
             <div id="logo-wrap" class="row">
                 <div class="small-9 medium-7 columns">
-                    <h3 id="k-logo"><a class="k-logo-a" href="{{ site_url }}">Kulinarian Blog</a></h3>
+                    <h3 id="k-logo"><a class="k-logo-a" href="{{{ site_url }}}">Kulinarian Blog</a></h3>
                 </div>
                 <div id="mobile-menu-btn-wrap" class="small-3 columns show-for-small-only">
                     <button id="mobile-menu-expand" class="small">
@@ -80,7 +80,7 @@ font_path: /fonts/
                     <div class="row">                        
                         <div class="small-12 medium-3 columns top-nav-col">
                             <button class="top-nav-tab">
-                                <a href="{{ site_url aboutus }}">Archives</a>
+                                <a href="{{{ site_url 'archives.html' }}}">Archives</a>
                             </button>
                         </div>
                         <div class="small-12 medium-3 columns top-nav-col">
