@@ -23,16 +23,19 @@ module.exports = function(grunt) {
                 flatten: true,
                 layout: 'default.hbs',
                 partials: 'app/partials/**/*.hbs',
-                assets: 'dist'
+                assets: 'dist',
+                collections: [
+                    {
+                        name: 'post',
+                        sortby: 'posted',
+                        sortorder: 'descending'
+                    }
+                ]
             },
-            page: {
+            posts: {
                 files: {
-                    'dist/': ['app/content/page/*.hbs']
-                }
-            },
-            blog: {
-                files: {
-                    'dist/': ['app/content/blog/*.hbs']
+                    'dist/index.html': ['app/content/posts/index.hbs'],
+                    'dist/posts/2015/': ['app/content/posts/2015/**/*.hbs']
                 }
             }
         }

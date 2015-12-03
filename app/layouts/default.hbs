@@ -1,5 +1,5 @@
 ---
-asset_version: 2-0-5
+asset_version: 2-0-7
 font_path: /fonts/
 ---
 <!DOCTYPE html>
@@ -8,6 +8,7 @@ font_path: /fonts/
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="//www.kulinarian.com/images/identity/favicon.png">
+    <title>{{ title }}</title>
 
     <style>
         @font-face {
@@ -79,24 +80,16 @@ font_path: /fonts/
                 <div id="top-nav-tabs" class="small-12 medium-12 columns hide-mobile-menu">
                     <div class="row">                        
                         <div class="small-12 medium-3 columns top-nav-col">
-                            <button class="top-nav-tab">
-                                <a href="{{ site_url 'archives.html' }}">Archives</a>
-                            </button>
+                            <a href="{{ site_url 'archives.html' }}"><button class="top-nav-tab">Archives</button></a>
                         </div>
                         <div class="small-12 medium-3 columns top-nav-col">
-                            <button class="top-nav-tab">
-                                <a href="{{ app_url 'aboutus' true }}">About</a>
-                            </button>
+                            <a href="{{ app_url 'aboutus' true }}"><button class="top-nav-tab">About</button></a>
                         </div>
                         <div class="small-12 medium-3 columns top-nav-col">
-                            <button class="top-nav-tab">
-                                <a href="{{ app_url 'contact' true }}">Contact Us</a>
-                            </button>
+                            <a href="{{ app_url 'contact' true }}"><button class="top-nav-tab">Contact Us</button></a>
                         </div>
                         <div class="small-12 medium-3 columns end top-nav-col">
-                            <button class="top-nav-tab">
-                                <a href="{{ app_url '' true }}">kulinarian</a>
-                            </button>
+                            <a href="{{ app_url '' true }}"><button class="top-nav-tab">kulinarian</button></a>
                         </div>
                     </div>
                 </div>
@@ -104,7 +97,16 @@ font_path: /fonts/
         <div>
     </header>
 
-    <footer></footer>
+    <ul>
+      {{#withSort post 'data.posted'}}
+        {{#each this.pages }}
+        <li>{{ this.data.title }}</li>
+        {{/each}}
+      {{/withSort}}
+    </ul>
+
+    <footer><div class="row"><div class="small-12 medium-6 columns"><p class="footer-p">© 2012 - 2015 <em>Kulinarian.com</em></p><a class="footer-a" href="https://www.kulinarian.com/login">Login</a><a class="footer-a" href="https://www.kulinarian.com/login">Register</a><a class="footer-a" href="https://www.kulinarian.com/contact">Contact Us</a><a class="footer-a" href="https://www.kulinarian.com/aboutus">About</a><a class="footer-a" href="https://www.kulinarian.com/privacypolicy">Privacy Policy</a><a class="footer-a" href="https://www.kulinarian.com/termsofservice">Terms Of Service</a><a class="footer-a" href="https://www.kulinarian.com/privacypolicy#cookies">Cookies</a><a class="footer-a" href="https://plus.google.com/106562811761956759090" rel="publisher">Google+</a><a class="footer-a" href="https://twitter.com/Kulinarian" rel="publisher">Twitter</a><a class="footer-a" href="https://www.facebook.com/Kulinarian" rel="publisher">Facebook</a><a class="footer-a" href="http://www.pinterest.com/kulinarian/" rel="publisher">Pinterest</a></div><div id="footer-address" class="small-12 medium-3 columns"><div itemscope="" itemtype="http://schema.org/Organization"><p class="adrs-p"><a itemprop="name" href="mailto:info@kulinarian.com">info@kulinarian.com</a></p><div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><p class="adrs-p">Main Address:</p><p class="adrs-p" itemprop="streetAddress">807 E. Baltimore St.</p><p class="adrs-p"><span itemprop="addressLocality">Baltimore, MD </span><span itemprop="postalCode">21202</span></p></div></div></div><div class="small-12 medium-3 columns"><a id="f-mwl" href="http://madewithloveinbaltimore.org">Made with &hearts; in Baltimore</a><br><a class="footer-a" href="https://www.kulinarian.com/built-in-baltimore">About Kulinarian.com</a></div></div></footer>
+
     <script type="text/javascript" src="{{ asset_cdn }}/js/kulinarian{{ asset_version }}.min.js"></script>
 </body>
 </html>
