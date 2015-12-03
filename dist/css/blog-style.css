@@ -1,5 +1,29 @@
 
+.top-nav-tab a {
+            color: white;
+}
+#k-logo {
+    float: left;
+    font-size: 2.5em;
+}
+@media only screen and (min-width: 40.0625em) {
+    #top-nav-tabs {
+        padding: 0 1.85em 0 1.7em;
+    }            
+}
+
 #main-wrap img {
     margin-top: 2em;
     margin-bottom: 2em;
+}
+
+#recent-list {
+    list-style: none;
+    padding: 0;
+}
+
+#recent-list > li {
+    border-top: solid 1px #DDD;
+    padding: .625em .3em 0 .3em;
+    margin: .625em;
 }

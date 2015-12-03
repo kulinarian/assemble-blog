@@ -3,3 +3,11 @@ title: Kulinarian.blog
 posted: 2015-11-28
 ---
 
+{{#withSort post 'data.posted'}}
+    {{#each this.pages }}
+
+##[{{ this.data.title }}]({{ pageUrl this.dest }})
+
+{{ this.data.description }}
+    {{/each}}
+{{/withSort}}

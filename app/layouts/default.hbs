@@ -10,8 +10,6 @@ font_path: /fonts/
     <link rel="shortcut icon" href="//www.kulinarian.com/images/identity/favicon.png">
     <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="{{ assetCdn }}/css/style{{ asset_version }}.css"/>
-
     <style>
         @font-face {
             font-family: 'Lobster';
@@ -28,6 +26,7 @@ font_path: /fonts/
         }
     </style>
 
+    <link rel="stylesheet" href="{{ assetCdn }}/css/style{{ asset_version }}.css"/>
     <link rel="stylesheet" href="{{ siteUrl '/css/blog-style.css' }}"/>
 
     <script>
@@ -91,12 +90,13 @@ font_path: /fonts/
             {{/ markdown }}            
         </div>
         <div class="small-12 medium-4 columns">
-            <ul>
-              {{#withSort post 'data.posted'}}
-                {{#each this.pages }}
-                <li><a href="{{ pageUrl this.dest }}">{{ this.data.title }}</a></li>
-                {{/each}}
-              {{/withSort}}
+            <h3>Recent Posts</h3>
+            <ul id="recent-list">
+                {{#withSort post 'data.posted'}}
+                    {{#each this.pages }}
+                        <li><a href="{{ pageUrl this.dest }}">{{ this.data.title }}</a></li>
+                    {{/each}}
+                {{/withSort}}
             </ul>
         </div>
     </div>
