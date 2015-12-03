@@ -24,9 +24,14 @@ font_path: /fonts/
             font-weight: 400;
             src: url('{{ concat assets font_path }}OpenSans-Regular.ttf');
         }
+
+        #main-wrap img {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
     </style>
 
-    <link rel="stylesheet" href="{{ asset_cdn }}/css/style{{ asset_version }}.css"/>
+    <link rel="stylesheet" href="{{ assetCdn }}/css/style{{ asset_version }}.css"/>
 
     <style>        
         .top-nav-tab a {
@@ -41,6 +46,7 @@ font_path: /fonts/
                 padding: 0 1.85em 0 1.7em;
             }            
         }
+
     </style>
 
     <script>
@@ -55,12 +61,12 @@ font_path: /fonts/
     {{> svg-icons }}
     <header>
         <div id="masthead">
-            <img id="masthead-img" src="{{ asset_cdn }}/images/mastheads/foodiesfeed.com_italian-polenta.jpg" alt="{{ asset_cdn }}/images/mastheads/foodiesfeed.com_italian-polenta.jpg">
+            <img id="masthead-img" src="{{ assetCdn }}/images/mastheads/foodiesfeed.com_italian-polenta.jpg" alt="{{ assetCdn }}/images/mastheads/foodiesfeed.com_italian-polenta.jpg">
         </div>
         <div id="primary-nav">
             <div id="logo-wrap" class="row">
                 <div class="small-9 medium-7 columns">
-                    <h3 id="k-logo"><a class="k-logo-a" href="{{ site_url }}">Kulinarian Blog</a></h3>
+                    <h3 id="k-logo"><a class="k-logo-a" href="{{ siteUrl }}">Kulinarian Blog</a></h3>
                 </div>
                 <div id="mobile-menu-btn-wrap" class="small-3 columns show-for-small-only">
                     <button id="mobile-menu-expand" class="small">
@@ -80,16 +86,16 @@ font_path: /fonts/
                 <div id="top-nav-tabs" class="small-12 medium-12 columns hide-mobile-menu">
                     <div class="row">                        
                         <div class="small-12 medium-3 columns top-nav-col">
-                            <a href="{{ site_url 'archives.html' }}"><button class="top-nav-tab">Archives</button></a>
+                            <a href="{{ siteUrl 'archives.html' }}"><button class="top-nav-tab">Archives</button></a>
                         </div>
                         <div class="small-12 medium-3 columns top-nav-col">
-                            <a href="{{ app_url 'aboutus' true }}"><button class="top-nav-tab">About</button></a>
+                            <a href="{{ appUrl 'aboutus' true }}"><button class="top-nav-tab">About</button></a>
                         </div>
                         <div class="small-12 medium-3 columns top-nav-col">
-                            <a href="{{ app_url 'contact' true }}"><button class="top-nav-tab">Contact Us</button></a>
+                            <a href="{{ appUrl 'contact' true }}"><button class="top-nav-tab">Contact Us</button></a>
                         </div>
                         <div class="small-12 medium-3 columns end top-nav-col">
-                            <a href="{{ app_url '' true }}"><button class="top-nav-tab">kulinarian</button></a>
+                            <a href="{{ appUrl '' true }}"><button class="top-nav-tab">kulinarian</button></a>
                         </div>
                     </div>
                 </div>
@@ -97,16 +103,27 @@ font_path: /fonts/
         <div>
     </header>
 
-    <ul>
-      {{#withSort post 'data.posted'}}
-        {{#each this.pages }}
-        <li>{{ this.data.title }}</li>
-        {{/each}}
-      {{/withSort}}
-    </ul>
+    <div id="main-wrap" class="row main-wrap">
+        <div class="small-12 medium-8 columns">
+            {{# markdown }}
+                {{> body }}
+            {{/ markdown }}            
+        </div>
+        <div class="small-12 medium-4 columns">
+            <ul>
+              {{#withSort post 'data.posted'}}
+                {{#each this.pages }}
+                <li><a href="{{ pageUrl this.dest }}">{{ this.data.title }}</a></li>
+                {{/each}}
+              {{/withSort}}
+            </ul>
+        </div>
+    </div>
+
+
 
     <footer><div class="row"><div class="small-12 medium-6 columns"><p class="footer-p">© 2012 - 2015 <em>Kulinarian.com</em></p><a class="footer-a" href="https://www.kulinarian.com/login">Login</a><a class="footer-a" href="https://www.kulinarian.com/login">Register</a><a class="footer-a" href="https://www.kulinarian.com/contact">Contact Us</a><a class="footer-a" href="https://www.kulinarian.com/aboutus">About</a><a class="footer-a" href="https://www.kulinarian.com/privacypolicy">Privacy Policy</a><a class="footer-a" href="https://www.kulinarian.com/termsofservice">Terms Of Service</a><a class="footer-a" href="https://www.kulinarian.com/privacypolicy#cookies">Cookies</a><a class="footer-a" href="https://plus.google.com/106562811761956759090" rel="publisher">Google+</a><a class="footer-a" href="https://twitter.com/Kulinarian" rel="publisher">Twitter</a><a class="footer-a" href="https://www.facebook.com/Kulinarian" rel="publisher">Facebook</a><a class="footer-a" href="http://www.pinterest.com/kulinarian/" rel="publisher">Pinterest</a></div><div id="footer-address" class="small-12 medium-3 columns"><div itemscope="" itemtype="http://schema.org/Organization"><p class="adrs-p"><a itemprop="name" href="mailto:info@kulinarian.com">info@kulinarian.com</a></p><div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><p class="adrs-p">Main Address:</p><p class="adrs-p" itemprop="streetAddress">807 E. Baltimore St.</p><p class="adrs-p"><span itemprop="addressLocality">Baltimore, MD </span><span itemprop="postalCode">21202</span></p></div></div></div><div class="small-12 medium-3 columns"><a id="f-mwl" href="http://madewithloveinbaltimore.org">Made with &hearts; in Baltimore</a><br><a class="footer-a" href="https://www.kulinarian.com/built-in-baltimore">About Kulinarian.com</a></div></div></footer>
 
-    <script type="text/javascript" src="{{ asset_cdn }}/js/kulinarian{{ asset_version }}.min.js"></script>
+    <script type="text/javascript" src="{{ assetCdn }}/js/kulinarian{{ asset_version }}.min.js"></script>
 </body>
 </html>
