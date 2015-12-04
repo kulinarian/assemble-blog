@@ -5,10 +5,10 @@ posted: 2015-11-28
 
 {{#withSort post 'data.posted'}}
     {{#each this.pages }}
-
-##[{{ this.data.title }}]({{ pageUrl this.dest }})
-
-{{ this.data.description }} [continue reading...]({{ pageUrl this.dest }})
-
+        <div class="post-summary">
+            <h2><a href="{{ pageUrl this.dest }}">{{ this.data.title }}</a></h2>
+            <date>{{ formatDate this.data.posted "%B %d, %Y" }}</date>
+            <p>{{ this.data.description }} <a href="{{ pageUrl this.dest }}">continue reading...</a></p>
+        </div>
     {{/each}}
 {{/withSort}}
