@@ -86,16 +86,66 @@ font_path: /fonts/
     <div id="main-wrap" class="row main-wrap">
         <div class="small-12 medium-8 columns">
             {{> body }}
+
+            {{#if page.post }}
+                <div id="disqus_thread" style="margin-top:30px;"></div>
+                <script>
+                var disqus_config = function () {
+                this.page.url = '{{ pageUrl page.dest }}'; // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = '{{ pageUrl page.dest }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+
+                s.src = '//blogkulinariancom.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            {{/if}}
         </div>
         <div class="small-12 medium-4 columns">
-            <h3>Recent Posts</h3>
-            <ul id="recent-list">
-                {{#withSort post 'data.posted'}}
-                    {{#each this.pages }}
-                        <li><a href="{{ pageUrl this.dest }}">{{ this.data.title }}</a></li>
-                    {{/each}}
-                {{/withSort}}
-            </ul>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <div id="shrgrpwrp" style="margin:10px 0 30px 10px;float:none;">
+                    <button id="shrpg" class="sharebtn"><div class="shrpin"></div><div class="shrtwt"></div><div class="shrfb"></div></button>
+                    <div id="shrbtngrp">
+                        <div class="shrbtn">
+                            <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="none" data-pin-color="red" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png" /></a>
+                        </div>
+                        <hr class="shrhr">
+                        <div class="shrbtn">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-related="Kulinarian" data-count="none">Tweet</a>
+                        </div>
+                        <hr class="shrhr">
+                        <div class="shrbtn">
+                            <a style="display:block;width:100%;" href="//www.reddit.com/submit" onclick="window.location='//www.reddit.com/submit?url='+encodeURIComponent(window.location); return false"><img style="width:25px;" src="//www.redditstatic.com/spreddit1.gif" alt="submit to reddit" border="0" /></a>
+                        </div>
+                        <hr class="shrhr">
+                        <div class="shrbtn">
+                            <div id="fb-root"></div>
+                            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <h3>Recent Posts</h3>
+                    <ul id="recent-list">
+                        {{#withSort post 'data.posted'}}
+                            {{#each this.pages }}
+                                <li><a href="{{ pageUrl this.dest }}">{{ this.data.title }}</a></li>
+                            {{/each}}
+                        {{/withSort}}
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -104,3 +154,4 @@ font_path: /fonts/
     <script type="text/javascript" src="{{ assetCdn }}/js/kulinarian{{ asset_version }}.min.js"></script>
 </body>
 </html>
+
