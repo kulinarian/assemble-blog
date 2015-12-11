@@ -39,5 +39,5 @@ module.exports.assetCdn = function(path)
  */
 module.exports.pageUrl = function(url)
 {
-    return url.replace(/dist\//, '');
+    return module.exports.siteUrl(url.replace(/dist\//, ''));
 }

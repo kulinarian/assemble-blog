@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         },
         assemble: {
             options:{
-                helpers: ['app/js/helpers.js'],
+                helpers: ['helper-moment', 'app/js/helpers.js'],
                 layoutdir: 'app/layouts',
                 flatten: true,
                 layout: 'default.hbs',
