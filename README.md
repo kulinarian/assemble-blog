@@ -1,3 +1,6 @@
+#### assemble-blog
+
+This repository is not intended to be an open source project. Rather it's goal is to simply show how we use Assemble.io to build [blog.kulinarian.com](http://blog.kulinarian.com/). Our primary app [kulinarian.com](https://www.kulinarian.com) is built with [Laravel](https://github.com/laravel/laravel).
 
 #### Assemble.io
 

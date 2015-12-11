@@ -15,6 +15,7 @@ module.exports.siteUrl = function(path, ssl)
 
 /**
  * this is for pointing people to our product, instead of this blog
+ *
  * @param  {[type]} path [description]
  * @param  {[type]} ssl  [description]
  * @return {[type]}      [description]
