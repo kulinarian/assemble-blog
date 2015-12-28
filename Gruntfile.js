@@ -19,6 +19,7 @@ module.exports = function(grunt) {
         assemble: {
             options:{
                 helpers: ['helper-moment', 'app/js/helpers.js'],
+		plugins: ['grunt-assemble-sitemap'],
                 layoutdir: 'app/layouts',
                 flatten: true,
                 layout: 'default.hbs',
@@ -30,7 +31,12 @@ module.exports = function(grunt) {
                         sortby: 'posted',
                         sortorder: 'descending'
                     }
-                ]
+                ],
+		sitemap: {
+			homepage: 'http://blog.kulinarian.com',
+			dest: 'dist',
+			relativedest: true
+		}
             },
             posts: {
                 files: {
