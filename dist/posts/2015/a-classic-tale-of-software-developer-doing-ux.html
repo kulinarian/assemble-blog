@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="//www.kulinarian.com/images/identity/favicon.png">
-    <title>Kulinarian.com Users Asked For A New Website... So We Built It</title>
+    <title>A Classic Tale Of A Software Developer Attempting UX Design</title>
 
     <style>
         @font-face {
@@ -98,20 +98,55 @@
             
 
 <div id="post-content-wrap">
-<h1 id="kulinarian-com-users-asked-for-a-new-website-so-we-built-it">Kulinarian.com Users Asked For A New Website... So We Built It</h1>
-<date>November 30, 2015</date>
+<h1 id="a-classic-tale-of-a-software-developer-attempting-ux-design">A Classic Tale Of A Software Developer Attempting UX Design</h1>
+<date>December 28, 2015</date>
 
-<p>We’re happy to announce that the features our users have been asking for are finally live and ready to use. The first thing you will immediately notice is the entire site design, layout, and style has been completely redone.</p>
-<p>The original version of <a href="http://www.kulinarian.com/">Kulinarian.com</a> was built by a software developer who is clueless about design (that would be me). So I worked with a professional UX designer and artist to give kulinarians a beautifully designed website and experience. We hope you like it.</p>
-<p>Next, we totally rebuilt the <a href="https://www.kulinarian.com/recipe/upload">Recipe Editing</a> tool. Kulinarians did not like our existing tool. They felt it was too complex and it had too many editing fields that made the process feel clunky and slow. So to fix this issue, we dramatically simplified the editor to allow users to enter their recipe ingredients and steps into only two separate fields, which is a huge improvement over the previous editor’s countless inputs.</p>
+<p>User experience design is hard. And as a software developer, I did what all developers do when they attempt UX design... they assume their users will instinctively know how to use their product. I expected the user to intuitively know how my interfaces will work and why an interface needed to function the way it did.</p>
+<p>Sometimes I’m probably a little too confident. I believe I’m a “well rounded” developer that has a general understanding of all aspects of the web and it’s related design practices. I knew I should not assume users will know how to use my product. Yet, I still made these classic mistakes and delivered a poor user experience.</p>
+<p>After realizing I made some mistakes and needed some professional help, I found a talented UX and visual designer to help me redesign the Kulinarian interfaces.</p>
+<p>The most important tool on Kulinarian.com is our <a href="https://www.kulinarian.com/recipe/upload">Recipe Builder</a>. The editor was also the interface that needed the most attention from a talented UX designer, so that is where the Kulinarian refactor begins.</p>
+<h3 id="here-is-how-we-dramatically-improved-our-recipe-builder">Here is how we dramatically improved our Recipe Builder</h3>
+<p>The original recipe uploader/editor was a “single page” app that walked users through a three step process.</p>
+<p>As you can see already, a single page app with three panels was needlessly complex from the start and was clearly dreamt up by an architecture astronaut.</p>
+<p>Step or panel #1 involved giving your recipe a name, writing a description, and then adding recipe “metadata” like servings, meal course, and preparation time. </p>
+<p>In step #2, the user was asked to enter the recipe ingredients and preparation steps. While entering ingredients, the user would have to enter quantity, measurement unit, and food item into three separate fields for each ingredient.</p>
+<p>And then in step #3, the user would confirm the recipe was correct and ready to be published.</p>
+<p><strong>What were the problems?</strong></p>
+<p>Step #1 was pretty straight forward and didn’t cause too many issues for our users.  Choosing a recipe name, writing a description, and selecting some additional fields was easy.</p>
+<p><img src="//d28ebfqlcy0ttg.cloudfront.net/images/blog/2015/12/old-recipe-editor-1.png" alt="Recipe Builder" title="Recipe Builder tool"></p>
+<p>However, after they completed those fields, they were often confused about what to do next. In their minds, it was time to enter recipe ingredients and steps, but they couldn’t find the fields to enter them in to.</p>
+<p>Where were the fields for the ingredients and steps? They were in step two.  However, users weren’t looking for “step two,” they were looking for the fields to enter their ingredients and steps on the current page, because that’s where a normal recipe interface includes these fields.</p>
+<p>Even though there was a very big and obvious button at the bottom of the form indicating click here to “Enter Ingredients,” users were still confused, missed the button and step two entirely, and left the form, which meant I had lost a user.</p>
+<div style="text-align:center;">
+    <p style="font-size:14px;"><em>Example Button</em></p>
+    <button>Enter Ingredients</button>
+</div>
+
+<p>I was baffled. How were they missing this button and step?  Most users found step two and successfully published recipes, but many users were confused by this process, and the process had failed them.</p>
+<p><strong>So what happened if you found your way to step two?</strong></p>
+<p>In the second step of creating a recipe, you were greeted with a big, nasty excel-like form with an infinite number of inputs.</p>
+<p><img src="//d28ebfqlcy0ttg.cloudfront.net/images/blog/2015/12/old-recipe-editor-2.png" alt="Recipe Builder" title="Recipe Builder tool"></p>
+<p>Now as a software developer, I was very proud of this form. It was complex as hell and difficult to build. I didn’t use any libraries or frameworks other than <a href="https://jquery.com/">jQuery</a>. It took me months to build in my spare time and I loved it.  But everyone else… hated it.</p>
+<p>Why did they not like my uber complex and sophisticated recipe form? Because it didn’t make any damn sense.</p>
+<p>If a user’s recipe called for “2 tablespoons balsamic vinegar” they would have to enter data into three separate fields “2,” “tablespoons,” and “balsamic vinegar.”  And if you had 10 ingredients, you would have to enter data into 30 different fields (Are you kidding me? What’s not to love?).</p>
+<p>Again, as a developer, for reasons that are only known to me, I thought this was a good idea and a great tool.</p>
+<p>Entering the recipe steps was based on the same idea as the ingredients input. Each step had to be entered into it’s own input field. Even though it was far less inputs than the ingredients, it was still more annoying than adding all of the steps into a single textbox.</p>
+<p><img src="//d28ebfqlcy0ttg.cloudfront.net/images/blog/2015/12/old-recipe-editor-3.png" alt="Recipe Builder" title="Recipe Builder tool"></p>
+<p><strong>You’ve made it to step three</strong></p>
+<p>Step three was simple. Look at your recipe to confirm everything was correct and click publish recipe.</p>
+<p>However, just like on step one, people were confused and thought that they had already saved their recipe, so they would not click publish and just leave the form.  After all the work they did, they would just leave and never finish publishing their recipe.</p>
+<p>It wasn’t their fault though, it was mine, and here is how I fixed it.</p>
+<h3 id="version-2-0">Version 2.0</h3>
+<p>When I decided to completely rebuild our Recipe Builder, I knew I had to start from scratch and that the HTML form and underlying technology had to be as simple as possible. Which meant, no single-page-app, and no multiple pages or steps. The entire recipe building process had to be one page and essentially one step to completion.</p>
+<p>After months of work, our recipe builder is one sleek form with only a handful of inputs.</p>
+<p><img src="//d28ebfqlcy0ttg.cloudfront.net/images/screenshots/recipe-uploader-2.0.jpg" alt="Recipe Builder" title="Recipe Builder tool"></p>
+<p>Like the previous recipe editor form, you start by adding your recipe name, description, course and servings. You also enter in the time it takes to prepare and cook the food.</p>
+<p>Next, in only two simple inputs (instead of countless inputs), you enter your ingredients and recipe steps.</p>
 <p><img src="//d28ebfqlcy0ttg.cloudfront.net/images/screenshots/recipe-editing-ingredients-2.0.jpg" alt="Recipe Editor" title="Recipe editor tool"></p>
-<p>We also completely rebuilt the recipe tagging tool. We tried to make the tag editing methods much simpler and easier to understand.</p>
-<p><img src="//d28ebfqlcy0ttg.cloudfront.net/images/screenshots/recipe-tagging-2.0.jpg" alt="Recipe Tagging" title="recipe tagging and categorization"></p>
-<p>Another big feature we’re proud of is our brand new <a href="https://www.kulinarian.com/recipe/search?q=carrots">recipe search engine</a>. We totally rebuilt our search engine to do a better job of helping you find recipes by keywords, ingredients, and tags.</p>
-<p><img src="//d28ebfqlcy0ttg.cloudfront.net/images/screenshots/recipe-search-2.0.jpg" alt="Recipe Searching" title="recipe tagging and categorization"></p>
-<p>Recipe ratings were another confusing feature for our website. So we did what we should have done in the first place, which is create a simple five star rating system that users would be familiar with.  We still use our advanced algorithms on the backend to ensure the best recipes are shown first, but all of that is now hidden from the users and replaced with the 5 star system everyone knows and loves.</p>
-<p>We also upgraded the “Menu” tool to make it easier to organize your recipes into “menus” or collections.</p>
-<p>So let us know what you think about the new site and keep an eye out for more new features coming soon.</p>
+<p>Even though this looks simpler than the previous ingredients input (which it is for our users), it’s actually much more complex in the backend of the system. We now use “Natural Language Processing” to parse the ingredient inputs and steps to get the required information we need about the recipe.</p>
+<p>After the user is finished creating their recipe, they click publish, and are taken to their live recipe page. And that’s it, it’s as easy pie. Not only is the recipe builder easy to use, but it also looks awesome thanks to the work of a professional UX designer.</p>
+<p>Once your recipe is published, you have the option to upload recipe images, tag your recipe with relevant keywords, and add your recipe to a menu.</p>
+<p>We’re really proud of our new <a href="https://www.kulinarian.com/recipe/upload">Recipe Builder</a> and we would love it if you added some recipes of your own to Kulinarian.com. Give it try and let us know what you think.</p>
 <p>Nate</p>
 
 </div>
@@ -120,8 +155,8 @@
                 <div id="disqus_thread" style="margin-top:30px;"></div>
                 <script>
                 var disqus_config = function () {
-                this.page.url = 'http://blog.kulinarian.com/posts/2015/kulinarian-users-asked-for-a-new-website.html'; // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = 'http://blog.kulinarian.com/posts/2015/kulinarian-users-asked-for-a-new-website.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.url = 'http://blog.kulinarian.com/posts/2015/a-classic-tale-of-software-developer-doing-ux.html'; // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = 'http://blog.kulinarian.com/posts/2015/a-classic-tale-of-software-developer-doing-ux.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
                 (function() { // DON'T EDIT BELOW THIS LINE
                 var d = document, s = d.createElement('script');

@@ -16,5 +16,8 @@
     "grunt-newer": "^1.1.0",
     "request": "^2.67.0",
     "grunt-cli": "~0.1.13"
+  },
+  "dependencies": {
+    "moment": "^2.10.6"
   }
 }

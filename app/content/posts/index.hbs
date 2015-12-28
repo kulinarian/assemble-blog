@@ -7,7 +7,7 @@ posted: 2015-11-28
     {{#each this.pages }}
         <div class="post-summary">
             <h2><a href="{{ pageUrl this.dest }}">{{ this.data.title }}</a></h2>
-            <date>{{ formatDate this.data.posted "%B %d, %Y" }}</date>
+            <date>{{ parseDate this.data.posted }}</date>
             <p>{{ this.data.description }} <a href="{{ pageUrl this.dest }}">continue reading...</a></p>
         </div>
     {{/each}}

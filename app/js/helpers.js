@@ -1,5 +1,6 @@
 
 var environment = require('./.environment.js');
+var moment = require('moment');
 
 module.exports.concat = function(str_a, str_b)
 {
@@ -40,4 +41,14 @@ module.exports.assetCdn = function(path)
 module.exports.pageUrl = function(url)
 {
     return module.exports.siteUrl(url.replace(/dist\//, ''));
+}
+
+/**
+ * remove the 'dist' from our urls
+ * @return {[type]} [description]
+ */
+module.exports.parseDate = function(txt, format)
+{
+    format = (typeof format == 'string') ? format : 'MMMM D, YYYY';
+    return moment(txt).utcOffset('+0500').format(format);
 }
