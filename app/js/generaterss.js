@@ -23,7 +23,9 @@ module.exports = function GenerateRss(rss_source, rss_file)
         site_url: 'http://example.com'
     });
 
-    files = getSourceFiles(rss_source);    
+    var files = getSourceFiles(rss_source);
+
+    console.log(files);
      
     /* loop over data and add to feed */
     feed.item({
