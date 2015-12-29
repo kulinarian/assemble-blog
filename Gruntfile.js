@@ -1,9 +1,17 @@
+var path = require('path');
 
 module.exports = function(grunt) {
  
     // load all grunt tasks
     grunt.loadNpmTasks('assemble');
     grunt.loadNpmTasks('grunt-contrib-watch');
+
+    grunt.registerTask('generaterss', 'create an rss file', function() {
+        var rss_js = path.resolve('app/js/generaterss.js');
+        var rss_dist = path.resolve('dist/rss.xml');
+        var GenerateRss = require(rss_js);
+        var rss = new GenerateRss(rss_dist);
+    });
 
     var gruntConfig = {
         pkg: grunt.file.readJSON('package.json'),
@@ -13,13 +21,13 @@ module.exports = function(grunt) {
                     'app/**/*.hbs',
                     'app/js/*.js'
                 ],
-                tasks: ['assemble']
+                tasks: ['assemble', 'generaterss']
             }
         },
         assemble: {
             options:{
                 helpers: ['helper-moment', 'app/js/helpers.js'],
-		plugins: ['grunt-assemble-sitemap'],
+                plugins: ['grunt-assemble-sitemap'],
                 layoutdir: 'app/layouts',
                 flatten: true,
                 layout: 'default.hbs',
@@ -32,11 +40,11 @@ module.exports = function(grunt) {
                         sortorder: 'descending'
                     }
                 ],
-		sitemap: {
-			homepage: 'http://blog.kulinarian.com',
-			dest: 'dist',
-			relativedest: true
-		}
+                sitemap: {
+                    homepage: 'http://blog.kulinarian.com',
+                    dest: 'dist',
+                    relativedest: true
+                }
             },
             posts: {
                 files: {
