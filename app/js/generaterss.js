@@ -25,8 +25,8 @@ module.exports = function GenerateRss(rss_output)
         url: 'http://example.com/article4?this&that', // link to the item 
     });
 
-    // // cache the xml to send to clients 
+    // cache the xml to send to clients 
     var xml = feed.xml();
 
-    console.log(rss_output);
+    fs.writeFileSync(rss_output, xml, "utf8");
 };
