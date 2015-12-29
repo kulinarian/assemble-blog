@@ -8,9 +8,10 @@ module.exports = function(grunt) {
 
     grunt.registerTask('generaterss', 'create an rss file', function() {
         var rss_js = path.resolve('app/js/generaterss.js');
-        var rss_dist = path.resolve('dist/rss.xml');
+        var rss_source = path.resolve('app/content');
+        var rss_file = path.resolve('dist/rss.xml');
         var GenerateRss = require(rss_js);
-        var rss = new GenerateRss(rss_dist);
+        var rss = new GenerateRss(rss_source, rss_file);
     });
 
     var gruntConfig = {

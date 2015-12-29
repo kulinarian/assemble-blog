@@ -10,6 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "assemble": "~0.4.40",
+    "fs-walk": "~0.0.1",
+    "front-matter": "~2.0.*",
     "grunt": "~0.4.5",
     "grunt-contrib-connect": "~0.8.0",
     "grunt-contrib-watch": "^0.6.1",
