@@ -6,14 +6,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('assemble');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('generaterss', 'create an rss file', function() {
-        var rss_js = path.resolve('app/js/generaterss.js');
-        var rss_source = path.resolve('app/content');
-        var rss_file = path.resolve('dist/rss.xml');
-        var GenerateRss = require(rss_js);
-        var rss = new GenerateRss(rss_source, rss_file);
-    });
-
     var gruntConfig = {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
@@ -55,6 +47,12 @@ module.exports = function(grunt) {
             }
         }
     };
+
+    grunt.registerTask('generaterss', 'create an rss file', function() {
+        var rss_js = path.resolve('app/js/generaterss.js');
+        var GenerateRss = require(rss_js);
+        var rss = new GenerateRss(grunt);
+    });
 
     /**
      * I moved all of the config items out of grunt.initConfig()
