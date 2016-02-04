@@ -42,7 +42,8 @@ module.exports = function(grunt) {
             posts: {
                 files: {
                     'dist/index.html': ['app/content/posts/index.hbs'],
-                    'dist/posts/2015/': ['app/content/posts/2015/**/*.hbs']
+                    'dist/posts/2015/': ['app/content/posts/2015/**/*.hbs'],
+                    'dist/posts/2016/': ['app/content/posts/2016/**/*.hbs']
                 }
             }
         }
