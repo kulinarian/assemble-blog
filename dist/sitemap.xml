@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://blog.kulinarian.com/index.html</loc>
-    <lastmod>2016-01-02T19:43:48.913Z</lastmod>
+    <lastmod>2016-02-05T12:53:14.325Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://blog.kulinarian.com/posts/2015/kulinarian-users-asked-for-a-new-website.html</loc>
-    <lastmod>2016-01-02T19:43:48.914Z</lastmod>
+    <lastmod>2016-02-05T12:53:14.325Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://blog.kulinarian.com/posts/2015/a-classic-tale-of-software-developer-doing-ux.html</loc>
-    <lastmod>2016-01-02T19:43:48.914Z</lastmod>
+    <lastmod>2016-02-05T12:53:14.326Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://blog.kulinarian.com/posts/2016/squarespace-vs-wordpress-for-food-blogs.html</loc>
+    <lastmod>2016-02-05T12:53:14.326Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
