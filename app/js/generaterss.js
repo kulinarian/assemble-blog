@@ -1,9 +1,3 @@
-/*
-    Example feed welcome page
-    http://news.bbc.co.uk/2/hi/help/rss/default.stm
-    example feed (view in chrome)
-    http://feeds.bbci.co.uk/news/technology/rss.xml?edition=uk
- */
 
 var fs = require('fs');
 var fm = require('front-matter');
@@ -31,7 +25,9 @@ module.exports = function GenerateRss(grunt)
         title: 'Kulinarian Blog: Food, Recipes, and Tech',
         description: 'Articles on food, recipes, and tech from the creators of Kulinarian.com',
         feed_url: 'http://blog.Kulinarian.com/rss.xml',
-        site_url: 'http://blog.Kulinarian.com'
+        site_url: 'http://blog.Kulinarian.com',
+        copyright: new Date().getFullYear() + author,
+        language: 'en',
     });
 
     // get post data from the source files
